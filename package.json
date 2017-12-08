@@ -1,11 +1,19 @@
 {
   "name": "basis",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "mimi4Real",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mimi4Real/basis.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mimi4Real/basis/issues"
+  },
+  "homepage": "https://github.com/mimi4Real/basis#readme",
+  "description": ""
 }
