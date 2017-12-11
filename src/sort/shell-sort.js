@@ -12,8 +12,8 @@ class ShellSort{
 		const len = arr.length;
 		let step = 1;
 
-		while(step < len/3){
-			step = len * 3 + 1;
+		while(step * 3 + 1 < len){
+			step = step * 3 + 1;
 		}
 
 		while (step >= 1){
