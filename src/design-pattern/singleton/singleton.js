@@ -10,7 +10,7 @@ let _instance = (function () {
 
 class Singleton{
 	constructor(){
-		if(_instance) return _instance;
+		if(_instance()) return _instance();
 
 		this.foo = 'bar';
 
