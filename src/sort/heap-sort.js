@@ -38,6 +38,26 @@ class HeapSort {
 			this.maxHeapify(arr, i, arr.length);
 		}
 	}
+
+
+	maxHeapifyOfSwim(arr, i){
+
+		while(i > 0) {
+			let iParent = i%2 === 0 ? ~~(i/2 - 1) : ~~(i/2);
+			if (arr[i] > arr[iParent]) {
+				sortSwap.swap(arr, i, iParent);
+			}
+			i = iParent;
+		}
+	}
+
+	buildMaxHeapOfSwim(arr){
+		let i;
+		for(i = 1; i<arr.length; i++){
+			this.maxHeapifyOfSwim(arr, i, arr.length);
+		}
+	}
+
 	sort(arr) {
 		this.buildMaxHeap(arr);
 		for (var i = arr.length - 1; i > 0; i--) {
@@ -47,6 +67,19 @@ class HeapSort {
 		return arr;
 	}
 
+	sortOfSwim(arr) {
+		this.buildMaxHeapOfSwim(arr);
+		for (var i = arr.length - 1; i > 0; i--) {
+			sortSwap.swap(arr, 0, i);
+			this.maxHeapifyOfSwim(arr, i-1 );
+		}
+		return arr;
+	}
+
 }
 
-console.log(new HeapSort().sort([23, 1, 67, 3, 5, 11,2]));
+console.log('sort of sink:');
+console.log(new HeapSort().sort([1, 0, 23, 1, 67, 3, 5, 11,2]));
+
+console.log('sort of swim:');
+console.log(new HeapSort().sortOfSwim([23, 1, 67, 3, 5, 11,2]));
