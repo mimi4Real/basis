@@ -12,4 +12,10 @@ var gcd = function(a,  b){
 	}
 }
 
-console.log(gcd(12, 0));
+const num1 = 12,  num2 = 16;
+
+let common = gcd(num1, num2)
+
+console.log("最大公约数：" + common);
+
+console.log("最小公倍数：" + num1*num2/common);
