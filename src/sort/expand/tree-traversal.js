@@ -34,7 +34,7 @@ function MDR(node) {
 	}
 }
 
-//中序遍历（递归）
+//后序遍历（递归）
 function MDR_recursion(node){
 	if (node.left) {
 		// console.log(node.left)
@@ -47,7 +47,6 @@ function MDR_recursion(node){
 	};
 
 	console.log(node.value);
-
 }
 
 
@@ -63,7 +62,7 @@ array.forEach(value => {
 	nodes.push(treeObj);
 })
 
-build(nodes); // tree build
+build(nodes); // build complete tree
 
 MDR_recursion(nodes[0]);
 MDR(nodes[0]);
