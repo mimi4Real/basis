@@ -27,7 +27,10 @@ function getSubObj(start, arr){
 
 
 function maxSubArrSum(start, arr, prevSum) {
+	!start && (start = 0);
+
 	if(start > arr.length - 1) return prevSum;
+
 	const subObj = getSubObj(start, arr);
 
 	let sum = 0;
@@ -40,9 +43,7 @@ function maxSubArrSum(start, arr, prevSum) {
 	return maxSubArrSum(subObj.end, arr, prevSum);
 }
 
-let initSum = null;
-
-console.log(maxSubArrSum(0, [12,13,14, 2, 7, 8, 88], initSum));
-console.log(maxSubArrSum(0, [-12,-13,-14, -89, -7, -8,], initSum));
+console.log(maxSubArrSum([12,13,14, 2, 7, 8, 88]));
+console.log(maxSubArrSum([-12,-13,-14, -89, -7, -8,]));
 
 
