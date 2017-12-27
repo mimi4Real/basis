@@ -25,7 +25,7 @@ function getSubObj(start, arr){
 	};
 }
 
-function maxSubArrSum(arr, start, prevSum) {
+function maxSubArrSum1(arr, start, prevSum) {
 	!start && (start = 0);
 
 	if(start > arr.length - 1) return prevSum;
@@ -39,10 +39,38 @@ function maxSubArrSum(arr, start, prevSum) {
 
 	prevSum = isNaN(parseInt(prevSum)) ? sum : (prevSum > sum ? prevSum : sum);
 
-	return maxSubArrSum(arr, subObj.end, prevSum);
+	return maxSubArrSum1(arr, subObj.end, prevSum);
 }
 
-console.log(maxSubArrSum([12,13,14, 2, 7, 8, 88]));
-console.log(maxSubArrSum([-12,-13,-14, -89, -7, -8,]));
+console.log(maxSubArrSum1([12,13,14, 2, 7, 8, 88]));
+console.log(maxSubArrSum1([-12,-13,-14, -89, -7, -8]));
 
 
+function maxSubArrSum2(arr) {
+	let sum = null;
+	let prevOrder = 'init';
+
+	arr.forEach((val, i) => {
+		if(i === 0){
+			sum = val;
+		}else{
+
+			let currOrder = (arr[i] === arr[i - 1] - 1 ? 'desc' : (arr[i] === arr[i - 1] + 1 ? 'asc' : 'init'));
+
+			let prevVal = currOrder === 'asc' ? (arr[i - 1] + 1) : (arr[i - 1] - 1);
+
+			if((prevOrder === 'init' || currOrder === prevOrder) && prevVal === arr[i]){
+				sum += arr[i];
+			}else{
+				sum = sum > arr[i] ? sum : arr[i];
+			}
+
+			prevOrder = currOrder;
+		}
+	});
+
+	return sum;
+}
+
+console.log(maxSubArrSum2([12,13,14, 2, 7, 8, 88]));
+console.log(maxSubArrSum2([-12,-13,-14, -89, -7, -8]));
