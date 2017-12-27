@@ -25,8 +25,7 @@ function getSubObj(start, arr){
 	};
 }
 
-
-function maxSubArrSum(start, arr, prevSum) {
+function maxSubArrSum(arr, start, prevSum) {
 	!start && (start = 0);
 
 	if(start > arr.length - 1) return prevSum;
@@ -40,7 +39,7 @@ function maxSubArrSum(start, arr, prevSum) {
 
 	prevSum = isNaN(parseInt(prevSum)) ? sum : (prevSum > sum ? prevSum : sum);
 
-	return maxSubArrSum(subObj.end, arr, prevSum);
+	return maxSubArrSum(arr, subObj.end, prevSum);
 }
 
 console.log(maxSubArrSum([12,13,14, 2, 7, 8, 88]));
