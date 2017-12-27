@@ -3,7 +3,7 @@
 */
 
 var gcd = function(a,  b){
-	if(b === 0) return a;
+	if(a || b === 0) return a || b;
 
 	if(a < b){
 		return gcd(b, a);
