@@ -17,7 +17,7 @@ function build(nodes) {
 }
 
 //中序遍历
-function MDR(node) {
+function LDR(node) {
 	let stack = [];
 
 	while(node || stack.length){
@@ -35,15 +35,15 @@ function MDR(node) {
 }
 
 //后序遍历（递归）
-function MDR_recursion(node){
+function LRD_recursion(node){
 	if (node.left) {
 		// console.log(node.left)
-		MDR_recursion(node.left);
+		LRD_recursion(node.left);
 	};
 
 	if (node.right) {
 		// console.log(node.right)
-		MDR_recursion(node.right);
+		LRD_recursion(node.right);
 	};
 
 	console.log(node.value);
@@ -64,5 +64,5 @@ array.forEach(value => {
 
 build(nodes); // build complete tree
 
-MDR_recursion(nodes[0]);
-MDR(nodes[0]);
+LRD_recursion(nodes[0]);
+LDR(nodes[0]);
