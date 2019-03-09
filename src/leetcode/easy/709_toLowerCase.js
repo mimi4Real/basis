@@ -1,3 +1,8 @@
+/**
+ * @param {string} str
+ * @return {string}
+ * https://leetcode.com/problems/to-lower-case/
+ */
 var toLowerCase = function(str) {
 	var strArr = str.split('');
 	for(var i in strArr){

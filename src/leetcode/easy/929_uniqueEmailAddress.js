@@ -1,6 +1,7 @@
 /**
  * @param {string[]} emails
  * @return {number}
+ * https://leetcode.com/problems/unique-email-addresses/
  */
 var numUniqueEmails = function(emails) {
 	var res = [];
