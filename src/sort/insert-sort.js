@@ -39,6 +39,35 @@ class InsertSort{
 	}
 }
 
-const obj = new InsertSort();
+/*const obj = new InsertSort();
 console.log(obj.sort([23, 1,6,2,45,2,1,9,4]));
-console.log(obj.binarySort([12, 9, 4, 2, 34, 0, 1, 2, 5]));
+console.log(obj.binarySort([12, 9, 4, 2, 34, 0, 1, 2, 5]));*/
+
+
+
+
+function binarySearch(arr, low, high, hkey){
+	//递归
+	/*var mid = ~~((low + high)/2);
+	if(low > high) return -1;
+	if(arr[mid] > hkey){
+		return binarySearch(arr, low, mid -1 , hkey);
+	}
+
+	if(arr[mid] < hkey){
+		return binarySearch(arr, mid + 1, high, hkey);
+	}
+
+	return mid;*/
+
+	//循环
+	while(low <= high){
+		var mid = ~~((low + high)/2);
+		hkey > arr[mid] ? low = mid + 1 : high = mid - 1;
+	}
+
+	return low;
+}
+
+var arr = [3,56,45,67,89];
+console.log(binarySearch(arr, 0, arr.length - 1, 44));
